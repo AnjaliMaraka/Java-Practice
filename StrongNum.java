@@ -1,0 +1,67 @@
+// Strong number
+
+// If the sum of the factorial of digits of a number (N) is equal to the number itself, the number (N) is called a special number.
+
+// Consider a number 145 and check it is a special number or not.
+// The digits of the number are: 1, 4, 5
+
+// Factorial of digits:
+
+// !1 = 1
+
+// !4 = 4*3*2*1 = 24
+
+// !5 = 5*4*3*2*1 = 120
+
+// Sum of factorial of digits = 1 + 24 + 120 = 145
+
+// Compare the sum of the factorial of digits with the given number, i.e. 145 = 145. We observe that both are equal.
+// Program in Java to check if a given number is a strong number or not
+import java.util.*;
+
+class StrongNum {
+  public static void main(String args[]) {
+    int n, i;
+    int fact, lastdig;
+    Scanner sc = new Scanner(System.in);
+    System.out.print("Enter the number : ");
+    n = sc.nextInt();
+    int sum = 0;
+    int temp = n;
+    while (n != 0) {
+      i = 1;
+      fact = 1;
+      lastdig = n % 10;
+      while (i <= lastdig) {
+        fact = fact * i;
+        i++;
+      }
+      sum = sum + fact;
+      n = n / 10;
+    }
+    if (sum == temp)
+      System.out.println("strong number");
+    else
+      System.out.println("not a strong number\n");
+  }
+}
+// class StrongNum{
+// public static void main(String args[]){
+// Scanner sc=new Scanner(System.in);
+// System.out.println("Enter number");
+// int n=sc.nextInt();
+// int fact=1;
+// int sum=0;
+// int rem;
+// while (n>0){
+// rem=n%10;
+// fact=fact*rem;
+// n=n/10;
+// }
+// sum=sum+fact;
+// if(n==sum){
+// System.out.println(sum);
+// }
+
+// }
+// }
