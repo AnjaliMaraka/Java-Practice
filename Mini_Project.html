@@ -1,0 +1,216 @@
+<!-- Front End Foundation: Mini Project
+Arogya Hospital Information Management System
+
+Hey learner!! Remember our client Arogya Hospital, for whom we built a Java based application? They liked your work, and they are back with another project contract. This time Arogya Hospital needs some nice-looking web pages (front end) for the operators, nurses and doctors to use. Understand the requirements below and use what you learned about HTML and CSS. 
+
+Please read the description carefully before you start implementation. Based on the success of this project, Arogya will award additional contracts to bitLabs.
+
+The management system should have the following features: -
+
+• Home page
+Home page should contain Hospital logo, brief description of hospital and their mission with attractive images. 
+Also, we should have Some other options to choose like - 
+1.Medicine Record 
+2.Patient’s Registration 
+3.Patient’s Profile 
+4.Contact us
+
+• Medicine Record
+Beside Home page option we should have Medicine Entry Form. This form is used to capture the name of the medicine supplier and all the medicines supplied by them.
+In medicine entry form we should take 3 inputs that represent the “Supplier Details”
+1.Supplier ID 
+2.Supplier Name 
+3.Date and time of Supply
+
+• Right below the “Supplier Details” you should have a table, with multiple rows. Each row represents a medicine supplied by the particular Supplier.   
+1.Medicine ID 
+2.Medicine Name 
+3.Unit price 
+4.Quantity 
+5.Manufacture date
+6.Expiry Date
+And the “Submit button” at the bottom middle of the page.
+
+● Patient’s Registration 
+This page is used to register patients into the system and to admit them.
+
+Assign a unique id to each patient admitted.
+
+Add a patient’s personal details:
+Add a patient’s details to your page whenever there is a new patient admitted.
+The patient details should include his/her name, age, gender, Aadhar Card number, contact number, Emergency contact number, Complete address, etc.
+
+Guardian's Information: -
+Add a patient’s guardian’s details to your page whenever there is a new patient    admitted. The details should include his/her name, age, gender, Aadhar Card number, contact number, Complete address, etc.
+
+COVID 19: Past 1 year information: 
+In this section we will be collecting their past record related to covid. The details should include Travel info: Did He/she travel in the past 1 Month?, Vaccine Doses, Date of last dose, Date of last Covid test, If patient is showing any symptoms? etc.
+
+Insurance details: 
+We should collect their insurance details (if any) like insurance membership, Insurance number, etc. 
+
+And take “Date of admission” then “Submit Button” at the bottom of the page.
+
+● Search Patients
+This page is used to do the following:
+1.View full list of patients
+2.Search an entry of patient
+3.Recovery and Delete 
+
+View full list of patients
+The system should show the list of patients at any point of time. Basically, the system should be dynamic and a real time system. In other words, it can provide results at any point of time without any delays. For now, just provide a button to view all patients, and we can hook it to up to the backend in a later project.
+
+Search an entry of patient
+The operator must be able to search for patients using any of the following information Patient ID, Patient Name, Patient City, Patient Age. For a searching by age, provide minimum age and maximum age as search input. 
+
+Recovery and Delete
+Mark the patient recovered when he or she is fully recovered using patient’s ID as input. The system should also be able to delete the information of a patient when asked to, using patient’s ID as input. 
+ 
+• Contact us
+In this page we should include all contact details of hospitals like Address, Phone No,	Email address, Mobile No., Customer Support, Ambulance Contact No., Website, etc.
+
+If you want to add some extra features in your project then you can discuss it with your respective mentor. Your innovative ideas are very welcome.
+
+Sounds exciting? Then please go ahead and start your implement using HTML and CSS learnt in the Front-End foundation course. 
+
+Note: Create menu bar which includes Home, Medicine Record, Patient Registration, Patient Profile and contact us as a menu values. When we click on the menu option display related elements on the body part of the HTML page. Create footer and display “© All Rights Reserved by Arogya Hospital @bitLabs.in” message.
+
+All the very best and Happy learning with bitLabs!! -->
+<!DOCTYPE html>
+<html>
+    <head>
+        
+       <link rel="stylesheet" href="Mini_Project.css" type="text/css" />
+   
+    </head>
+    <body>
+        
+        <!--Top section--  Logo section.................................................................................>-->
+        
+        
+        
+        <div class="color-top">
+          <div>
+               <img class="image-top" src="https://www.aarogyahospital.com/wp-content/uploads/2018/08/logo.png"/>
+            
+               
+          </div>
+           <div class="navbar">
+           <a class="active" href="#">Home</a> 
+           <a href="./MedicineRecord.html">Medicine record</a> 
+           <a href="./PatientReg.html">Patient registration</a> 
+           <a href="./PatientProfile.html">Patient profile</a>
+           <a href="#div-contact">Contact Us</a>
+            
+        </div>
+            
+            
+            <!--bottom section starts from here. Welcome page............................................................-->
+            
+            
+            
+    <div style=background-color:white;>       
+         <h1 style=text-align:center;  font-family:"Roboto" color:white > WELCOME TO AAROGYA HOSPITALS!</h1>
+                 
+         <p style=text-align:center color:white><b>We Offer Extensive Medical Procedures To Outbound And Inbound Patients.</b></p>
+     
+         <img class="bot-img" src="https://media.istockphoto.com/id/1152347304/photo/together-we-save-more-lives-than-we-would-individually.jpg?s=612x612&w=0&k=20&c=17E5iigd_FkQaWuuEoyjXP5kvDrYCYKYr7HJnlOcp3M="/>
+         
+     
+            
+        <h3>WHO WE ARE</h3>
+  
+        <h2>Why Choose Aarogya Healthcare?</h2>
+   
+        <p>Established by Dr Prathap C Reddy in 1995, Aarogya Healthcare has a robust presence across the healthcare ecosystem. From routine wellness & preventive health care to innovative life-saving treatments and diagnostic services, Aarogya Hospitals has touched more than 120 million lives from over 120 countries, offering the best clinical outcomes.</p>
+
+        <h3>7,000+ Healing Hands</h3>
+
+        <p>Largest network of the world's finest and brightest medical experts who provide compassionate care using outstanding expertise and advanced technology.</p>
+    
+        <h3>4,000+ Pharmacies</h3>
+
+       <p>Aarogya Hospital is India's first, largest and most trusted branded pharmacy network, with over 4000 plus outlets covering the entire nation</p>
+
+       <h3>Most Advanced Healthcare Technology</h3>
+
+       <p>Aarogya Hospitals has been the pioneer in bringing ground-breaking healthcare technologies to India.</p>
+   
+       <h3>Best Clinical Outcomes</h3>
+
+       <p>Leveraging its vast medical expertise & technological advantage, Aarogya Hospitals has consistently delivered best in class clinical outcomes.</p>
+   
+   
+       <img class="bot-img1" src="https://res.cloudinary.com/dcd4s69kx/image/upload/v1637751966/82304eff4ef320eb_featured_mncmes.jpg"/>
+        <h3>About us..</h2>
+              
+          <p>Being situated in vicinity of the Factory establishment site at Vijayawada, Aarogya hospital shall always played crucial role in providing emergent medical services, and prompt medical relief in case of mass causality and very sick patient. Time for transportation is saved. We will be starting full fledged Intensive Care Unit facilities to treat all kinds of emergency cases</p>
+   
+        <p><b>
+
+      Aarogya Hospitals was started in 4th April 2016 By Two Clinicions, Dr.Sumanth Moparthi & Dr.Ponnam Subba Rao as an OPD Clinic with 
+      20 Bedded inpatient Hospital. Within no time Due to High acceptance of people around khammam, It was Expanded to 100 Bedded Hospital. 
+      We Succeeded in providing Quality Health Care with Highend Equipment and expert Doctors, Rather than imposing the burden of unnecessary luxurious 
+      amenities over the patient. We belive in cost cutting health care.</b></p>
+
+        <p style=line-height:1.3; font-size:2px;>Within 3 years of excellency in various departments, Aarogya hospitals has served around 3lakh patients in which 45% of services are free of cost.in addition to providing medical, surgical & emergency services we provide advanced teritiary health care in various specialities like cardiology, urology, nephrology, neuro surgery & neurology,oncology and minimal access surgery. over the past 4 years arogya hospital has touched the lives of hundres of thusands of surrounding 3 districts.</p>
+        <div>
+          <h2 >Our Mission is as Simple as follows..</h2>
+          
+          <ul >
+          
+          
+          <li>Patient Rights and Responsibilities: Giving you excellent health care is our mission and commitment. </li>
+          <li>Our entire focus is on your health care needs. Our goal is to respect your dignity and choices. </li>
+          <li>Be assured that every patient receives equal attention and equal access to all our services. </li>
+          <li>There is no discrimination in regard to race, religion, age, sex, disability or economic status. </li>
+          <li>This listing of your rights serves to inform you of your options regarding treatment or refusal of treatment.</li>
+          <li>These rights apply to all patients.</li>
+            <img class="bot-img" src="https://media.istockphoto.com/id/184983889/photo/medical-team.jpg?s=1024x1024&w=is&k=20&c=L-XnkZYvp7bGN1m-_cHAglx6KKwNFsescJcux6ydNcE="/>
+       </div>
+          
+         
+        <h3>Locate Us..</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d244184.85111042045!2d81.63506301640622!3d17.004613300000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37a5867bf6b091%3A0x57ff341f37ee2d0a!2sAAROGYA%20HOSPITAL!5e0!3m2!1sen!2sin!4v1638445722335!5m2!1sen!2sin" width="330" height="250" style="border:0;"  loading="lazy"></iframe>
+         
+    </div>       
+     
+     
+    <div id="div-contact" >
+                  
+                 <div style="width:50%; float:left;">
+                  <h3 style=color:red; font-family:"caveat" font-size:13px;>For daily news updates </h3>
+                  <input type="textarea" name="email" value="enter email" rows="2" cols="40" style=border=white/>
+                  <input type="submit" name="subscribe" value="subscribe"/>
+                  <br/>
+                  <h3>About us.</h3>
+ <pre>  Arogya hospitals offers a whole new experince in heath care by combining 
+  our advance state of the art facility with our commitment to provide in the 
+  best quality if life to many no of our district and surrding 3 districts.</pre>
+                 
+                  </div>
+                 
+                <div style="margin-left:50%; ">
+                  <h2 style= font-family:"Roboto"; font-size:12px;>Contact Info...</h2>
+                  <p> H.O. 34-8/3, Benz circle, Vijayawada, Andhra Pradesh.</p>     
+                       
+                 <p>B.O. 174-89/8, Near R.T.C  Complex, guntur, guntur, Andhra Pradesh.</p>
+                 <p><b>Tel. phone.  08673-252103</b></p>
+                 <p>Mobile: 7013840036</p>
+                 <p>Send your queries through: support@aarogyahospitals.com</p>
+                 <p><b>Ambulance no.</b> 9876543210</p>
+                 <br/>
+
+                 <br/>
+                
+                  </div>
+
+                 <p style="font-size:19px; ">  Â© 2021 All Rights Reserved by Aarogya Hospital || Designed by @bitLabs.in</p>
+
+               </div>  
+    
+
+          
+    </body>
+</html>
+
