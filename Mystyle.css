@@ -1,0 +1,18 @@
+h1{
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: 50px;
+        color: bisque;
+        background: yellowgreen;
+        text-align: center;
+        border-style: dotted;
+      }
+      p{
+        font-family: cursive;
+        font-size: 30px;
+        color: blanchedalmond;
+        background: maroon;
+        text-align: justify;
+        border-color: rgb(red, green, blue);
+        border-style: dotted;
+        padding: 30px;
+      }

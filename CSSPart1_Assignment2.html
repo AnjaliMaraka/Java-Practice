@@ -1,0 +1,65 @@
+    
+<!--Exercise 2: In this HTML page, do the following exercises. Click Preview link after completion of each excercise to see your output. 
+After completion of each excercise use br tag for line space. After completing all questions, submit the assignment to gitHub. -->
+
+<html>
+<body>
+
+<!--Exercise 2.1: Using pseudo element selector, create a paragraph and display only the first line of para with blue coloured text with a capital letters of small size.-->
+  <style>
+    p:first-line {
+    color: blue;
+    text-transform: uppercase;
+    font-size: small;
+  }
+  </style>
+  <p>pseudo element selector<br>
+  pseudo element selector<br>
+  pseudo element selector</p>
+
+<!-- Exercise 2.2: Using general sibling selector, create an Unordered list, change the colour of the items to green and display them in bold text. --> 
+  <style>
+ul ~ li
+ {
+  color: green;
+   font-weight:  bold;
+}
+</style>
+
+<body>
+
+<ul>
+<li>Item 1</li>
+<li>Item 2</li>
+</ul>
+<li>Item 3</li>
+<li>Item 4</li>
+
+</body>
+  
+
+<!-- Exercise 2.3: Using adjacent sibling selector, display list items in an ordered list and change the background colour to yellow for the element which is an adjacent sibling for the selected element. -->
+  <style>
+ol + li {
+  background-color: yellow;
+}
+</style>
+</head>
+<body>
+
+<h2>Adjacent Sibling Selector</h2>
+
+<li>The + selector is used to select an element that is directly after another specific element.</li>
+<li>The following example selects the first p element that are placed immediately after div elements:</li>
+
+<ol>
+  <li>Paragraph 1 in the div.</li>
+  <li>Paragraph 2 in the div.</li>
+</ol>
+
+<li>Paragraph 3. After a div.</li>
+<li>Paragraph 4. After a div.</li>
+  
+
+</body>
+</html>
