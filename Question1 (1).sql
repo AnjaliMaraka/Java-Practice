@@ -1,0 +1,2 @@
+-- 1.Write a SQL query to create a table called Employee that contains five columns as emp_id,emp_name,emp_dept,emp_phoneno,emp_address.
+create table employee3(emp_id int,emp_name varchar(220),emp_dept varchar(220),emp_phoneno int,emp_address varchar(220));

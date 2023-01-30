@@ -1,0 +1,2 @@
+-- 2.Write a  query to update emp_address to hyderabad ,joiningdate to 12-02-2022 in Employee table where employee_id=1.
+update Employee set emp_address="hyderabad",joiningdate="12-02-2022" where employee_id=1;
