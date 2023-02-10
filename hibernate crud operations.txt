@@ -1,0 +1,271 @@
+Entity class:
+package com.bitlabs.Entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Employee12 {
+@Id
+@GeneratedValue(strategy=GenerationType.AUTO)
+@Column(name="emp_id")
+	private int id;
+@Column(name="emp_name")
+private String name;
+@Column(name="emp_email")
+private String email;
+@Column(name="emp_salary")
+private int salary;
+public Employee12(String name, String email, int salary) {
+	super();
+	this.name = name;
+	this.email = email;
+	this.salary = salary;
+}
+public Employee12() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+public int getId() {
+	return id;
+}
+
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public String getEmail() {
+	return email;
+}
+public void setEmail(String email) {
+	this.email = email;
+}
+public int getSalary() {
+	return salary;
+}
+public void setSalary(int salary) {
+	this.salary = salary;
+}
+@Override
+public String toString() {
+	return "Employee12 [id=" + id + ", name=" + name + ", email=" + email + ", salary=" + salary + "]";
+}
+
+}
+===============================================================================================
+Dao Interface:
+package com.bitlabs.Dao;
+
+public interface EmployeeDaoInterface {
+	 public void insert();
+	 public void getAllEmployee();
+	 public void updateById(int id);
+	 public void getEmployeeById(int id);
+	 public void deleteEmployeeById(int id);
+}
+===============================================================================================
+Dao Implements:
+package com.bitlabs.Dao;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.bitlabs.Entity.Employee12;
+
+import java.util.Scanner;
+
+public class EmployeeDao implements EmployeeDaoInterface{
+
+	
+	Scanner sc=new Scanner(System.in);
+	
+	public void insert() {
+		SessionFactory sf=new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	Session s=sf.openSession();
+    	Transaction tx=s.beginTransaction();
+    	System.out.println("Enter Employee name");
+    	String name=sc.next();
+    	System.out.println("Enter employee emil");
+    	String email=sc.next();
+    	System.out.println("Enter employee salary");
+    	int salary=sc.nextInt();
+    	
+    	Employee12 emp=new Employee12();
+    	emp.setName(name);
+    	emp.setEmail(email);
+    	emp.setSalary(salary);
+    	
+    	s.save(emp);
+    	System.out.println("Inserted data successfully");
+    	tx.commit();
+    	s.close();
+	}
+	public void getAllEmployee() {
+		SessionFactory sf=new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	Session s=sf.openSession();
+    	
+    	Query query=s.createQuery("from Employee12");
+    	List<Employee12> list=new ArrayList();
+    	 list=query.list();
+    	
+    	for(Employee12 x: list) {
+    		System.out.println(x.getId()+"    "+x.getName()+"   "+x.getEmail()+"   "+x.getSalary());
+    		
+    	}
+    	
+    	s.close();
+	}
+	public void updateById(int id) {
+		SessionFactory sf=new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	Session s=sf.openSession();
+    	Transaction tx=s.beginTransaction();
+    	
+    	Employee12 obj=s.get(Employee12.class, id);
+    	
+    	obj.setName("lokesh manikanta");
+    	
+    	
+    	s.save(obj);
+    	System.out.println("updated data successfully");
+    	tx.commit();
+    	s.close();
+		
+	}
+	
+	public void getEmployeeById(int id) {
+		SessionFactory sf=new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	Session s=sf.openSession();
+    	Transaction tx=s.beginTransaction();
+    	
+    	Employee12 obj=s.get(Employee12.class, id);
+    	
+    	System.out.println(obj);
+    	
+    	
+    	s.save(obj);
+    	
+    	tx.commit();
+    	s.close();
+	}
+	public void deleteEmployeeById(int id) {
+		SessionFactory sf=new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	Session s=sf.openSession();
+    	Transaction tx=s.beginTransaction();
+    	
+    	Employee12 obj=s.get(Employee12.class, id);
+    	
+    	System.out.println(obj);
+    	
+    	
+    	s.delete(obj);
+    	System.out.println("Deletd data successfully");
+    	tx.commit();
+    	s.close();
+	}
+	
+	}
+
+============================================================================================
+APP Class:
+package com.bitlabs.Hibernate_CRUDOperations;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.bitlabs.Dao.EmployeeDao;
+import com.bitlabs.Dao.EmployeeDaoInterface;
+import com.bitlabs.Entity.Employee12;
+import java.util.*;
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+	
+	
+	
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        Scanner sc=new Scanner(System.in);
+        EmployeeDaoInterface dao=new EmployeeDao();
+        int option=0;
+        
+        do {
+        	System.out.println("Enter 1 to insert employee data ");
+        	System.out.println("Enter 2 to get all employee data ");
+        	System.out.println("Enter 3 to update employee data ");
+        	System.out.println("Enter 4 to get employee by id  ");
+        	System.out.println("Enter 5 to delete employee by id ");
+        	System.out.println("Enter 0 to exit ");
+        	option=sc.nextInt();
+        	
+        	switch(option) {
+        	case 1:
+        		dao.insert();
+        		break;
+        	case 2:
+        		dao.getAllEmployee();
+        		break;
+        	case 3:
+        		System.out.println("enter id");
+        		int id=sc.nextInt();
+        		dao.updateById(id);
+        		break;
+        	case 4:
+        		System.out.println("enter id");
+        		int id1=sc.nextInt();
+        		dao.getEmployeeById(id1);
+        		break;
+        	case 5:
+        		System.out.println("enter id");
+        		int id2=sc.nextInt();
+        		dao.deleteEmployeeById(id2);
+        		break;
+        	}
+        	
+        }while(option!=0);
+         
+    }
+}
+
+=========================================================================================
+
+HIBERNATE XML FILE:
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Version 8 MySQL hibernate-cfg.xml example for Hibernate 5/ -->
+<hibernate-configuration>
+<session-factory>
+<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+<!-- property name="connection.driver_class">com.mysql.jdbc.Driver</property -->
+<property name="connection.url">jdbc:mysql://localhost:3306/assignment</property>
+<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+<property name="connection.username">root</property>
+<property name="connection.password">root</property>
+<property name="show_sql">true</property>
+<property name="format_sql">true</property>
+<property name="hbm2ddl.auto">update</property>
+<!-- mapping class="com.mcnz.jpa.examples.Player" / -->
+<mapping class="com.bitlabs.Entity.Employee12" />
+
+</session-factory>
+</hibernate-configuration>
+=================================================================================================
